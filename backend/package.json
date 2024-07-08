@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": " dotenv -e .env.development node ./bin/www",
-    "start": "dotenv -e .env.production node ./bin/www"
+    "start": "dotenvx run --env-file=.env.production -- pm2-runtime start ecosystem.config.js --env production"
   },
   "dependencies": {
     "@casl/ability": "^6.7.1",
+    "@dotenvx/dotenvx": "^1.5.0",
     "bcrypt": "^5.1.1",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
@@ -21,7 +22,8 @@
     "mongoose": "^8.4.4",
     "morgan": "~1.9.1",
     "passport": "^0.7.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "pm2": "^5.4.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
